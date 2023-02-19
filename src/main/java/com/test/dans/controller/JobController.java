@@ -21,17 +21,6 @@ public class JobController {
         this.csvExportService = csvExportService;
     }
 
-//    @GetMapping("/obj2")
-//    public Object getJobList2(){
-//        try {
-//            String url = "http://dev3.dansmultipro.co.id/api/recruitment/positions.json";
-//            RestTemplate restTemplate = new RestTemplate();
-//            Job[] jobs = restTemplate.getForObject(url, Job[].class);
-//            return jobs;
-//        } catch (Exception e) {
-//            return new BaseResponse("Data Not Found", HttpStatus.NO_CONTENT.value(), null);
-//        }
-//    }
 
     @GetMapping("/get-all-jobs")
     public BaseResponse getJobList(){
@@ -45,9 +34,6 @@ public class JobController {
         }
     }
 
-
-//    @GetMapping("/{id}")
-//    public BaseResponse getJobDetail(@PathVariable("id") String id){
     @GetMapping("/detail")
     @ResponseBody
     public BaseResponse getJobDetail(@RequestParam("id") String id){
@@ -60,15 +46,6 @@ public class JobController {
             return new BaseResponse("Data Not Found", HttpStatus.NO_CONTENT.value(), null);
         }
     }
-
-//    @GetMapping("/downloadJobList")
-//    public BaseResponse downloadJobList(){
-//        try {
-//
-//        } catch (Exception e) {
-//            return new BaseResponse();
-//        }
-//    }
 
     @RequestMapping(path = "/download-job-list")
     public void getAllJobsInCsv(HttpServletResponse servletResponse) throws IOException {
