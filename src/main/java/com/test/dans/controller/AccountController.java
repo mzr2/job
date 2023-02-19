@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-    private AccountService accountService;
-
-    @PostMapping("/register-account")
-    public BaseResponse<Account> createAccount(@RequestBody Account account){
-        try {
-            accountService.saveAccount(account);
-            return new BaseResponse<Account>("Account Created", HttpStatus.CREATED.value(), account);
-        } catch (Exception e) {
-            return new BaseResponse<Account>("Account Created", HttpStatus.BAD_REQUEST.value(), account);
-        }
-
-    }
+//    AccountService accountService;
+//
+//    @PostMapping("/register-account")
+//    public BaseResponse<Account> createAccount(@RequestBody Account account){
+//        try {
+//            accountService.saveAccount(account);
+//            return new BaseResponse<Account>("Account Created", HttpStatus.CREATED.value(), account);
+//        } catch (Exception e) {
+//            return new BaseResponse<Account>("Account Created", HttpStatus.BAD_REQUEST.value(), account);
+//        }
+//
+//    }
 }
