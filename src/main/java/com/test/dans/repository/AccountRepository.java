@@ -8,4 +8,6 @@ import org.springframework.data.repository.query.Param;
 public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Query("SELECT acc FROM Account acc WHERE acc.username = :username")
     Account getByUsername(@Param("username") String username);
+
+//    public Account findByUserNameAndPassword(String username, String password);
 }

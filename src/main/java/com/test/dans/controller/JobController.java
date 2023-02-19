@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 
+@CrossOrigin()
 @RestController
 @RequestMapping(path = "job")
 public class JobController {
@@ -20,19 +21,19 @@ public class JobController {
         this.csvExportService = csvExportService;
     }
 
-    @GetMapping("/obj2")
-    public Object getJobList2(){
-        try {
-            String url = "http://dev3.dansmultipro.co.id/api/recruitment/positions.json";
-            RestTemplate restTemplate = new RestTemplate();
-            Job[] jobs = restTemplate.getForObject(url, Job[].class);
-            return jobs;
-        } catch (Exception e) {
-            return new BaseResponse("Data Not Found", HttpStatus.NO_CONTENT.value(), null);
-        }
-    }
+//    @GetMapping("/obj2")
+//    public Object getJobList2(){
+//        try {
+//            String url = "http://dev3.dansmultipro.co.id/api/recruitment/positions.json";
+//            RestTemplate restTemplate = new RestTemplate();
+//            Job[] jobs = restTemplate.getForObject(url, Job[].class);
+//            return jobs;
+//        } catch (Exception e) {
+//            return new BaseResponse("Data Not Found", HttpStatus.NO_CONTENT.value(), null);
+//        }
+//    }
 
-    @GetMapping("")
+    @GetMapping("/get-all-jobs")
     public BaseResponse getJobList(){
         try {
             String url = "http://dev3.dansmultipro.co.id/api/recruitment/positions.json";
